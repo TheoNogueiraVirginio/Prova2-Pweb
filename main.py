@@ -2,6 +2,7 @@ from flask import Flask, redirect, url_for, render_template, session
 from flask_wtf import FlaskForm
 from wtforms import StringField
 
+from app.functions import obter_filmes, adicionar_filme, remover_filme, contar_filmes
 
 class FilmeForm(FlaskForm):
     nome_filme = StringField('Título do filme')
@@ -14,20 +15,14 @@ def home():
     
     if form.validate_on_submit():
         filme = form.nome_filme.data
-        if 'filmes' not in session:
-            session['filmes'] = []
-        session['filmes'].append(filme)
-        session['filmes'] = session['filmes']
-        return render_template('index.html', form=form, filmes=session.get('filmes', []))
+        adicionar_filme(filme)
 
-    return render_template('index.html', form=form, filmes=session.get('filmes', []))
+    return render_template('index.html', form=form, filmes=obter_filmes(), qtd_filmes=contar_filmes())
 
 #Rota para remover filmes
 @app.route('/remover/<indice>', methods=['POST'])
-def remover_filme(indice):
-    if 'filmes' in session:
-        del session['filmes'][int(indice)]
-        session['filmes'] = session['filmes']
+def remover_filme_route(indice):
+    remover_filme(indice)
     return redirect(url_for('home'))
 
 if __name__ == '__main__':

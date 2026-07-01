@@ -12,7 +12,7 @@
         <ul>
             {% for i in range(filmes|length) %}
                 <li>{{ filmes[i] }}
-                    <form method="POST" action="{{ url_for('remover_filme', indice=i) }}" style="display:inline;">
+                    <form method="POST" action="{{ url_for('remover_filme_route', indice=i) }}" style="display:inline;">
                         <button type="submit">Remover</button>
                     </form>
                 </li>
@@ -21,7 +21,7 @@
     {% else %}
         <p>Você não tem filmes cadastrados.</p>
     {% endif %}
-    
+
     {% block content %}  
     {% endblock %}
     
