@@ -1,4 +1,6 @@
-from flask import Flask, FlaskForm, redirect, url_for, render_template, session, StringField
+from flask import Flask, redirect, url_for, render_template, session
+from flask_wtf import FlaskForm
+from wtforms import StringField
 
 
 class FilmeForm(FlaskForm):
