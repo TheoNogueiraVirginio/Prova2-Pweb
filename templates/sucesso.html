@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deu certo!</title>
+</head>
+<body>
+    {% extends "layout.html" %}
+    {% block content %}
+        <h2>Filme cadastrado com sucesso!</h2>
+        <a href="{{ url_for('home') }}">Voltar para a página inicial</a>
+    {% endblock %}
+    
+</body>
+</html>
