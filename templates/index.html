@@ -20,14 +20,17 @@
         {% endif %}
     </section>
 
-    <form action="" method="POST">
+    <form method="POST" action="{{ url_for('index') }}">
+        {{ form.hidden_tag() }}
         <div class="input-group">
             <span for="nome-filme">Título do filme:</span>
-            <input id="nome-filme"
-            name="nome-filme"
-            type="text"
-            placeholder="Título do filme"
-            required>
+            {{form.nome_filme(
+                id="nome-filme",
+                name="nome-filme",
+                type="text",
+                placeholder="Título do filme",
+                required=True
+            )}}
         </div>
         <button type="submit">Cadastrar Filme</button>
     </form>
