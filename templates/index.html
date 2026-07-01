@@ -6,9 +6,9 @@
     <title>Meus Filmes Favoritos</title>
 </head>
 <body>
-    <h1>Filmes Cadastrados</h1>
+    <h1>Meus Filmes Favoritos</h1>
 
-    <section class="filmes-cadastrados">
+    {% block content %}
         {% if filmes %}
             <ul>
                 {% for i in range(filmes|length) %}
@@ -22,8 +22,8 @@
         {% else %}
             <p>Nenhum filme cadastrado.</p>
         {% endif %}
-    </section>
-
+    {% endblock %}    
+    
     <form method="POST" action="{{ url_for('home') }}">
         {{ form.hidden_tag() }}
         <div class="input-group">
