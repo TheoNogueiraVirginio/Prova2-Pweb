@@ -6,6 +6,31 @@
     <title>Meus Filmes Favoritos</title>
 </head>
 <body>
-    
+    <h1>Filmes Cadastrados</h1>
+
+    <section class="filmes-cadastrados">
+        {% if filmes %}
+            <ul>
+                {% for filme in filmes %}
+                    <li>{{ filme.titulo }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>Nenhum filme cadastrado.</p>
+        {% endif %}
+    </section>
+
+    <form action="" method="POST">
+        <div class="input-group">
+            <span for="nome-filme">Título do filme:</span>
+            <input id="nome-filme"
+            name="nome-filme"
+            type="text"
+            placeholder="Título do filme"
+            required>
+        </div>
+        <button type="submit">Cadastrar Filme</button>
+    </form>
+
 </body>
 </html>
