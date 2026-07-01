@@ -20,12 +20,10 @@ def home():
 
     return render_template('index.html', form=form, filmes=obter_filmes(), qtd_filmes=contar_filmes())
 
-#rota de filme cadastrado com sucesso para sucesso.html
 @app.route('/sucesso')
 def sucesso():
     return render_template('sucesso.html', filmes=obter_filmes(), qtd_filmes=contar_filmes())
 
-#Rota para remover filmes
 @app.route('/remover/<indice>', methods=['POST'])
 def remover_filme_route(indice):
     remover_filme(indice)
