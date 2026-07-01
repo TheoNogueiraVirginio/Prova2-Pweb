@@ -20,22 +20,20 @@
         {% endif %}
     </section>
 
-    <form method="POST" action="{{ url_for('index') }}">
+    <form method="POST" action="{{ url_for('home') }}">
         {{ form.hidden_tag() }}
         <div class="input-group">
             <span for="nome-filme">Título do filme:</span>
             {{form.nome_filme(
-                id="nome-filme",
-                name="nome-filme",
-                type="text",
                 placeholder="Título do filme",
+                id="nome-filme",
                 required=True
             )}}
         </div>
         <button type="submit">Cadastrar Filme</button>
     </form>
 
-    <h3>Você tem {{ len(filmes) }} filmes favoritos.</h3>
+    <h3>Você tem {{ filmes|length }} filmes favoritos.</h3>
 
 </body>
 </html>
