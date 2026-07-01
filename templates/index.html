@@ -12,7 +12,7 @@
         {% if filmes %}
             <ul>
                 {% for filme in filmes %}
-                    <li>{{ filme.titulo }}</li>
+                    <li>{{ filme }}</li>
                 {% endfor %}
             </ul>
         {% else %}
@@ -25,7 +25,6 @@
         <div class="input-group">
             <span for="nome-filme">Título do filme:</span>
             {{form.nome_filme(
-                placeholder="Título do filme",
                 id="nome-filme",
                 required=True
             )}}

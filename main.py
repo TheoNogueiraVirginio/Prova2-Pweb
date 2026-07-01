@@ -17,7 +17,8 @@ def home():
         if 'filmes' not in session:
             session['filmes'] = []
         session['filmes'].append(filme)
-        return redirect(url_for('home'))
+        session['filmes'] = session['filmes']
+        return render_template('index.html', form=form, filmes=session.get('filmes', []))
 
     return render_template('index.html', form=form, filmes=session.get('filmes', []))
 
