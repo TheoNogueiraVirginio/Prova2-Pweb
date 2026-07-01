@@ -22,5 +22,13 @@ def home():
 
     return render_template('index.html', form=form, filmes=session.get('filmes', []))
 
+#Rota para remover filmes
+@app.route('/remover/<indice>', methods=['POST'])
+def remover_filme(indice):
+    if 'filmes' in session:
+        del session['filmes'][int(indice)]
+        session['filmes'] = session['filmes']
+    return redirect(url_for('home'))
+
 if __name__ == '__main__':
     app.run(debug=True)

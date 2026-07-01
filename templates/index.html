@@ -11,8 +11,12 @@
     <section class="filmes-cadastrados">
         {% if filmes %}
             <ul>
-                {% for filme in filmes %}
-                    <li>{{ filme }}</li>
+                {% for i in range(filmes|length) %}
+                    <li>{{ filmes[i] }}
+                        <form method="POST" action="{{ url_for('remover_filme', indice=i) }}" style="display:inline;">
+                            <button type="submit">Remover</button>
+                        </form>
+                    </li>
                 {% endfor %}
             </ul>
         {% else %}
