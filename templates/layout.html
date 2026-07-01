@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meus Filmes Favoritos</title>
+</head>
+<body>
+
+    <h1>Meus Filmes Favoritos</h1>
+    {% if filmes %}
+        <ul>
+            {% for i in range(filmes|length) %}
+                <li>{{ filmes[i] }}
+                    <form method="POST" action="{{ url_for('remover_filme', indice=i) }}" style="display:inline;">
+                        <button type="submit">Remover</button>
+                    </form>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Você não tem filmes cadastrados.</p>
+    {% endif %}
+    
+    {% block content %}  
+    {% endblock %}
+    
+</body>
+</html>
